@@ -15,3 +15,11 @@
   - Search for items by name.
 
 
+## Version 1.2 
+- 2024-10-17
+- Added the ability for users to see their current inventory before they input an option.
+- Modifited the display inventory
+- Modifited how to remove and update items and the quantity is updated everytime. 
+- Features: 
+  - View the inventory before an option. 
+  - Able to update items and remove it. 

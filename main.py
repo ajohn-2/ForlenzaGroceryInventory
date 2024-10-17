@@ -1,3 +1,6 @@
+
+
+
 def add_item(inventory, name, price, quantity):
     """
     Add a new item to the inventory.
@@ -19,8 +22,16 @@ def remove_item(inventory, item_name):
     inventory (dict): The current inventory
     item_name (str): The name of the item to remove
     """
-    del inventory[item_name]
-    print(f"{item_name} removed from the inventory.")
+    try:
+        del inventory[item_name]
+        print(f"{item_name} removed from the inventory.")
+        #Removes an item from the inventory
+        print("This is your current Inventory")
+        for name in inventory:
+            item = inventory[name]
+            print(f"{name}: Price: ${item['price']:.2f}, Quantity: {item['quantity']}")
+    except:
+        print("This item isn't in our inventory. Please try again")
 
 def update_quantity(inventory, item_name, new_quantity):
     """
@@ -31,8 +42,15 @@ def update_quantity(inventory, item_name, new_quantity):
     item_name (str): The name of the item to update
     new_quantity (str): The new quantity of the item
     """
-    inventory[item_name]["quantity"] == new_quantity
-    print(f"{item_name} quantity updated to {new_quantity}.")
+    try: 
+        inventory[item_name]["quantity"] == new_quantity
+        print(f"{item_name} quantity updated to {new_quantity}.")
+        print("This is your current Inventory")
+        for name in inventory:
+            item = inventory[name]
+            print(f"{name}: Price: ${item['price']:.2f}, Quantity: {item['quantity']}")
+    except:
+        print("That item isnt in our inventory. Please try again")
 
 def display_inventory(inventory):
     """
@@ -63,6 +81,7 @@ while True:
         name = input("Enter item name: ")
         price = input("Enter item price: ")
         quantity = int(input("Enter item quantity: "))
+        print(input("Are you sure you want to add this item?"))
         add_item(inventory, name, price, quantity)
     elif choice == "2":
         name = input("Enter item name to remove: ")
@@ -72,7 +91,10 @@ while True:
         quantity = input("Enter new quantity: ")
         update_quantity(inventory, name, quantity)
     elif choice == "4":
-        display_inventory(inventory)
+        num = 1
+        for x in inventory:
+            print(f"{num}){x}")
+            num += 1
     elif choice == "5":
         print("Exiting the program.")
         break
